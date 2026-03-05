@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lívia Kiss — ALIVE Design Studio</title>
     <meta name="description" content="UX/UI product designer creating digital experiences that feel ALIVE. Open to opportunities worldwide, especially Japan." />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -66,7 +67,7 @@
                     <!-- Card 1 -->
                      <article class="work-card">
                         <div class="work-card-image">
-                            <img src="https://res.cloudinary.com/dnnfhyeuv/image/upload/mockup_and_logo_cwvvx1" alt="[PROJECT NAME] preview"/>
+                            <img src="https://res.cloudinary.com/dnnfhyeuv/image/upload/mockup_and_logo_cwvvx1" alt="EchoLocate preview"/>
                         </div>
                         <div class="work-card-body">
                             <span class="work-card-tag">Product Design · Accessibility</span>
@@ -78,7 +79,7 @@
                     <!-- Card 2 -->
                     <article class="work-card">
                         <div class="work-card-image">
-                            <img src="https://res.cloudinary.com/dnnfhyeuv/image/upload/Alive_final_screen_photo_wtjb8e" alt="[PROJECT NAME] preview"/>
+                            <img src="https://res.cloudinary.com/dnnfhyeuv/image/upload/Untitled_design_vzdm0c" alt="ALIVE Design Studio preview"/>
                         </div>
                         <div class="work-card-body">
                             <span class="work-card-tag">UX/UI Design · Brand Identity · Frontend Development</span>
@@ -90,7 +91,7 @@
                     <!-- Card 3 -->
                     <article class="work-card">
                         <div class="work-card-image">
-                            <img src="https://via.placeholder.com/400x300" alt="[PROJECT NAME] preview"/>
+                            <img src="https://res.cloudinary.com/dnnfhyeuv/image/upload/pexels-alfomedeiros-11555874_ob7bft" alt="More Work Coming preview"/>
                         </div>
                         <div class="work-card-body">
                             <span class="work-card-tag">In Progress</span>
@@ -302,5 +303,33 @@
 
     </div>
   </footer>
+  <script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Hamburger menu toggle
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+    // Update accessibility attribute
+    const isOpen = navLinks.classList.contains('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
 </body>
 </html>
