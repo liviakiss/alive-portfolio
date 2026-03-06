@@ -982,3 +982,21 @@ body {
 #services { z-index: 3; position: relative; }
 #about    { z-index: 2; position: relative; }
 #contact  { z-index: 1; position: relative; }
+
+/* Mobile Section Dividers */
+
+@media (max-width: 768px) {
+  #hero,
+  #work,
+  #services,
+  #about {
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%);
+    padding-bottom: 60px;
+    margin-top: -20px;
+  }
+
+  #contact {
+    margin-top: -20px;
+    padding-top: 60px;
+  }
+}
