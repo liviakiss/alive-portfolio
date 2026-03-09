@@ -151,6 +151,7 @@
     .cs-decision-number { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 12px; }
     .cs-decision-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
     .cs-decision-desc { font-size: 0.88rem; color: #555566; line-height: 1.7; }
+    #cs-decisions .cs-section-title { color: #1a1a1a; }
 
     /* Horizontal scroll */
     .cs-scroll-container { margin: 48px 0 0; }
@@ -195,7 +196,7 @@
     .cs-stat-label { font-size: 0.82rem; color: var(--text-secondary); letter-spacing: 0.08em; margin-top: 8px; }
 
     /* Learned */
-    #cs-learned { background-color: var(--light-bg); }
+    #cs-learned { background-color: var(--light-bg) !important; }
     .cs-learned-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
     .cs-learned-col-title { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
     .cs-learned-col-title.went-well { color: var(--accent); }
@@ -216,23 +217,23 @@
     .footer-inner { display: flex; align-items: center; justify-content: space-between; }
     .footer-copy { font-size: 0.82rem; color: var(--text-secondary); }
 
-    #cs-goals, #cs-visual, #cs-build, #cs-result, #cs-learned, #cs-next, #cs-hero {
-        position: relative;
-    }
+    #cs-goals, #cs-visual, #cs-build, #cs-result, #cs-next, #cs-hero {
+    position: relative;
+}
 
-    #cs-goals::before, #cs-visual::before, #cs-build::before,#cs-result::before, #cs-learned::before, #cs-next::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(8, 8, 16, 0.72);
-        pointer-events: none;
-        z-index: 0;
-    }
+#cs-goals::before, #cs-visual::before, #cs-build::before, #cs-result::before, #cs-next::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 8, 16, 0.72);
+    pointer-events: none;
+    z-index: 0;
+}
 
-        #cs-goals .container, #cs-visual .container, #cs-build .container,#cs-result .container, #cs-learned .container, #cs-next .container {
-        position: relative;
-        z-index: 1;
-    }
+#cs-goals .container, #cs-visual .container, #cs-build .container, #cs-result .container, #cs-next .container {
+    position: relative;
+    z-index: 1;
+}
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -451,7 +452,7 @@
     <hr class="cs-divider" />
 
     <!-- What I Learned -->
-    <section id="cs-learned" class="cs-section">
+    <section id="cs-learned" class="cs-section light">
       <div class="container">
         <p class="cs-section-label fade-up">Reflection</p>
         <h2 class="cs-section-title fade-up delay-1">What I learned.</h2>

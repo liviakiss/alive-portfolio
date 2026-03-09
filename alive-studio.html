@@ -192,23 +192,23 @@
     .footer-inner { display: flex; align-items: center; justify-content: space-between; }
     .footer-copy { font-size: 0.82rem; color: var(--text-secondary); }
 
-    #cs-goals, #cs-visual, #cs-build, #cs-result, #cs-learned, #cs-next, #cs-hero {
-        position: relative;
-        }
-        #cs-goals::before, #cs-visual::before, #cs-build::before,
-        #cs-result::before, #cs-learned::before, #cs-next::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(8, 8, 16, 0.72);
-        pointer-events: none;
-        z-index: 0;
-        }
-        #cs-goals .container, #cs-visual .container, #cs-build .container,
-        #cs-result .container, #cs-learned .container, #cs-next .container {
-        position: relative;
-        z-index: 1;
-        }
+    #cs-goals, #cs-visual, #cs-build, #cs-result, #cs-next, #cs-hero {
+    position: relative;
+}
+
+#cs-goals::before, #cs-visual::before, #cs-build::before, #cs-next::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 8, 16, 0.72);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#cs-goals .container, #cs-visual .container, #cs-build .container, #cs-next .container {
+    position: relative;
+    z-index: 1;
+}
 
     /* Responsive */
     @media (max-width: 768px) {
