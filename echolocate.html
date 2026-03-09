@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EchoLocate — Case Study · ALIVE Design Studio</title>
   <meta name="description" content="EchoLocate: A technical accessibility terminal built on binary constraints, semantic logic, and extreme high-contrast systems." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://alivedesignstudio.net/echolocate.html" />
+<meta property="og:title" content="EchoLocate — Case Study · ALIVE Design Studio" />
+<meta property="og:description" content="A technical accessibility terminal built on binary constraints, semantic logic, and extreme high-contrast systems." />
+<meta property="og:image" content="https://res.cloudinary.com/dnnfhyeuv/image/upload/ada051ec-4103-4a0b-b910-4d61c1956deb_csg6ko" />
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="EchoLocate — Case Study · ALIVE Design Studio" />
+<meta name="twitter:description" content="A technical accessibility terminal built on binary constraints, semantic logic, and extreme high-contrast systems." />
+<meta name="twitter:image" content="https://res.cloudinary.com/dnnfhyeuv/image/upload/ada051ec-4103-4a0b-b910-4d61c1956deb_csg6ko" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -203,6 +215,24 @@
     #footer { padding: 40px 0; border-top: 1px solid rgba(91,168,160,0.08); background: var(--dark-bg); }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; }
     .footer-copy { font-size: 0.82rem; color: var(--text-secondary); }
+
+    #cs-goals, #cs-visual, #cs-build, #cs-result, #cs-learned, #cs-next, #cs-hero {
+        position: relative;
+    }
+
+    #cs-goals::before, #cs-visual::before, #cs-build::before,#cs-result::before, #cs-learned::before, #cs-next::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(8, 8, 16, 0.72);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+        #cs-goals .container, #cs-visual .container, #cs-build .container,#cs-result .container, #cs-learned .container, #cs-next .container {
+        position: relative;
+        z-index: 1;
+    }
 
     /* Responsive */
     @media (max-width: 768px) {
