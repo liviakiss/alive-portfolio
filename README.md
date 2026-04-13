@@ -16,6 +16,9 @@ Personal portfolio website for Lívia Kiss, UX/UI Product Designer and founder o
 - `index.html` — Main portfolio (Hero, Work, Services, About, Contact)
 - `echolocate.html` — EchoLocate case study
 - `alive-studio.html` — ALIVE Design Studio case study
+- `moral-me.html` — Moral Me case study
+- `design-system.html` — Design System case study
+- `goldmaster.html` — Goldmaster case study
 - `privacy-policy.html` — Privacy Policy
 
 ## Tools
