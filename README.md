@@ -20,6 +20,7 @@ Personal portfolio website for Lívia Kiss, UX/UI Product Designer and founder o
 - `design-system.html` — Design System case study
 - `goldmaster.html` — Goldmaster case study
 - `privacy-policy.html` — Privacy Policy
+- `services.html` — My services
 
 ## Tools
 
