@@ -1224,3 +1224,29 @@ a, button, input, textarea, select, label {
   #cursor-dot, #cursor-ring { display: none; }
   html, body, *, *::before, *::after { cursor: auto !important; }
 }
+
+/* Language toggle */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px solid rgba(91, 168, 160, 0.2);
+}
+.lang-toggle .lang-link {
+  color: var(--text-secondary);
+  transition: color 0.35s ease;
+  text-decoration: none;
+}
+.lang-toggle .lang-link:hover { color: var(--accent); }
+.lang-toggle .lang-current {
+  color: var(--accent);
+  font-weight: 600;
+}
+.lang-toggle .divider {
+  color: rgba(91, 168, 160, 0.3);
+}
