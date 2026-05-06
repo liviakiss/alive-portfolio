@@ -515,13 +515,15 @@ img {
   text-decoration: underline;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .work-grid {
-    display: flex;
-    grid-template-columns: none; 
-    overflow-x: auto;
+    display: flex !important;
+    flex-direction: row !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -534,10 +536,11 @@ img {
   }
 
   .work-card {
-    flex: 0 0 85%; 
+    flex: 0 0 85% !important;
+    min-width: 85%;
     scroll-snap-align: center;
   }
-  
+
   .work-card-image {
     height: 200px;
   }
