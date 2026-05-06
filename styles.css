@@ -515,6 +515,10 @@ img {
   text-decoration: underline;
 }
 
+.swipe-indicator {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .work-grid {
     display: flex !important;
@@ -533,6 +537,28 @@ img {
 
   .work-grid::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Swipe Indicator Styling */
+  .swipe-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+    color: var(--accent-teal);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    animation: pulse-swipe 2s infinite;
+  }
+
+  @keyframes pulse-swipe {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
   }
 
   .work-card {
