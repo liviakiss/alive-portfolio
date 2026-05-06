@@ -435,6 +435,7 @@ img {
   overflow: hidden;
   transition: transform var(--transition-base),
               box-shadow var(--transition-base);
+  position: relative;
 }
 
 .work-card:hover {
@@ -499,14 +500,52 @@ img {
   transition: gap var(--transition-fast);
 }
 
-.work-card-link:hover {
+.work-card-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.work-card:hover .work-card-link {
   gap: 10px;
+  text-decoration: underline;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   .work-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    grid-template-columns: none; 
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    gap: 16px;
+    padding: 20px 0;
+  }
+
+  .work-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .work-card {
+    flex: 0 0 85%; 
+    scroll-snap-align: center;
+  }
+  
+  .work-card-image {
+    height: 200px;
+  }
+
+  .work-grid::before,
+  .work-grid::after {
+    content: '';
+    flex: 0 0 5%;
   }
 }
 
@@ -802,7 +841,7 @@ img {
 
 .about-bio p:first-child {
   font-size: 1.05rem;
-  color: var(--text-dark);
+  color: var(--text-dark-secondary);
 }
 
 .about-skills {
