@@ -59,6 +59,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alivedesignstudio.net/privacy-policy.html"/>
     <priority>0.3</priority>
   </url>
+  <url>
+  <loc>https://alivedesignstudio.net/pantry.html</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://alivedesignstudio.net/pantry.html"/>
+  <xhtml:link rel="alternate" hreflang="hu" href="https://alivedesignstudio.net/hu/pantry.html"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://alivedesignstudio.net/pantry.html"/>
+  <priority>0.8</priority>
+</url>
 
   <!-- Hungarian pages -->
   <url>
@@ -117,5 +124,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://alivedesignstudio.net/privacy-policy.html"/>
     <priority>0.3</priority>
   </url>
+  <url>
+  <loc>https://alivedesignstudio.net/hu/pantry.html</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://alivedesignstudio.net/pantry.html"/>
+  <xhtml:link rel="alternate" hreflang="hu" href="https://alivedesignstudio.net/hu/pantry.html"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://alivedesignstudio.net/pantry.html"/>
+  <priority>0.8</priority>
+</url>
 
 </urlset>
