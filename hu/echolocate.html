@@ -35,12 +35,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --dark-bg: #080810;
-      --light-bg: #DBF4FF;
-      --accent: #5ba8a0;
-      --accent-border: rgba(91, 168, 160, 0.25);
-      --text-light: #f0f0f0;
-      --text-secondary: #888899;
+      --dark-bg: #090F15;                  /* Midnight */
+      --dark-surface: #262E36;             /* Mountainside */
+      --light-bg: #D3D1CE;                 /* Arctic (Replaces light-bg pale blue) */
+      --accent: #88867A;                   /* Golden Hour */
+      --accent-border: rgba(108, 109, 116, 0.25); /* Apres Ski based border overlay */
+      --text-light: #D3D1CE;               /* Arctic */
+      --text-secondary: #B3B7BA;           /* Slopes */
       --font-serif: 'Playfair Display', serif;
       --font-sans: 'Inter', sans-serif;
       --container: 1200px;
@@ -57,8 +58,16 @@
     .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
 
     /* Cursor */
-    #cursor-dot { width: 8px; height: 8px; background: #fff; border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: difference; }
-    #cursor-ring { width: 32px; height: 32px; border: 1.5px solid #fff; border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: transform 0.3s ease; mix-blend-mode: difference; }
+    #cursor-dot {
+      width: 8px; height: 8px; background: #D3D1CE; border-radius: 50%;
+      position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%); mix-blend-mode: difference;
+    }
+    #cursor-ring {
+      width: 32px; height: 32px; border: 1.5px solid #D3D1CE; border-radius: 50%;
+      position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%); transition: transform 0.3s ease; mix-blend-mode: difference;
+    }
     #cursor-ring.hovered { transform: translate(-50%, -50%) scale(2); }
 
     /* Animations */
@@ -69,8 +78,16 @@
     .delay-3 { transition-delay: 0.3s; }
 
     /* Navbar */
-    #navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; background: transparent; transition: background var(--transition), backdrop-filter var(--transition); }
-    #navbar.scrolled { background: rgba(8, 8, 16, 0.85); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid rgba(91, 168, 160, 0.1); }
+    #navbar {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: transparent; transition: background var(--transition), backdrop-filter var(--transition);
+    }
+    #navbar.scrolled {
+      background: rgba(9, 15, 21, 0.85); /* Midnight */
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(108, 109, 116, 0.1); /* Apres Ski */
+    }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
     .nav-logo { display: flex; flex-direction: column; line-height: 1.1; }
     .nav-logo-name { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--accent); letter-spacing: 0.05em; }
@@ -85,26 +102,38 @@
     .cs-section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
     .cs-section-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: var(--text-light); line-height: 1.2; margin-bottom: 32px; }
     .cs-body { font-size: 0.98rem; color: var(--text-secondary); line-height: 1.85; max-width: 680px; }
-    .cs-divider { border: none; border-top: 1px solid rgba(91, 168, 160, 0.1); }
+    .cs-divider { border: none; border-top: 1px solid rgba(108, 109, 116, 0.1); }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .cs-img { border-radius: 12px; border: 1px solid var(--accent-border); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
 
     /* Light sections */
     .light { background-color: var(--light-bg); }
-    .light .cs-section-title { color: #1a1a1a; }
-    .light .cs-body { color: #555566; }
+    .light .cs-section-title { color: #090F15; } /* Updated to Midnight */
+    .light .cs-body { color: #262E36; }          /* Updated to Mountainside */
     .light .cs-section-label { color: var(--accent); }
 
     /* Buttons */
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 4px; font-family: var(--font-sans); font-size: 0.95rem; font-weight: 500; border: none; transition: all var(--transition); cursor: none; }
     .btn-primary { background: var(--accent); color: var(--dark-bg); }
-    .btn-primary:hover { background: #4d9890; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,168,160,0.3); }
-    .btn-ghost { background: transparent; color: var(--text-light); border: 1.5px solid rgba(240,240,240,0.2); }
+    .btn-primary:hover { background: #6F6D64; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(136,134,122,0.3); } /* Tuned to match Golden Hour */
+    .btn-ghost { background: transparent; color: var(--text-light); border: 1.5px solid rgba(108,109,116,0.4); } /* Updated to Apres Ski */
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
     /* Hero */
-    #cs-hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding: 160px 0 120px; background-color: #0a0a0f; background-image: url(https://res.cloudinary.com/dnnfhyeuv/image/upload/echolocate1_i7lbup); background-size: cover; background-position: center; }
-    #cs-hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(91,168,160,0.12) 1px, transparent 1px); background-size: 36px 36px; pointer-events: none; z-index: 0; mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 80%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 80%); }
+    #cs-hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      overflow: hidden; padding: 160px 0 120px;
+      background-color: #090F15; /* Midnight */
+      background-image: url(https://res.cloudinary.com/dnnfhyeuv/image/upload/v1779014929/Case_study_hy97qn.png);
+      background-size: cover; background-position: center;
+    }
+    #cs-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(136,134,122,0.12) 1px, transparent 1px); /* Golden Hour accent glow */
+      background-size: 36px 36px; pointer-events: none; z-index: 0;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 80%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 80%);
+    }
     .cs-hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .cs-back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; transition: gap var(--transition); }
     .cs-back-link:hover { gap: 10px; }
@@ -112,12 +141,15 @@
     .cs-hero-subtitle { font-size: 1rem; color: var(--text-secondary); line-height: 1.75; max-width: 480px; margin-bottom: 40px; }
     .cs-meta { display: flex; flex-direction: column; gap: 10px; }
     .cs-meta-row { display: flex; align-items: baseline; gap: 12px; }
-    .cs-meta-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); min-width: 70px; }
+    .cs-meta-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); min-width: 50px; }
     .cs-meta-value { font-size: 0.88rem; color: var(--text-secondary); }
     .cs-hero-media video { width: 100%; border-radius: 12px; border: 1px solid var(--accent-border); box-shadow: 0 32px 80px rgba(0,0,0,0.6); }
 
     /* Goals */
-    #cs-goals { background-color: #0a0a0f; background-image: url(https://res.cloudinary.com/dnnfhyeuv/image/upload/echolocate2_suw1o5); background-size: cover; background-position: center; }
+    #cs-goals {
+      background-color: #090F15; /* Midnight */
+      background-size: cover; background-position: center;
+    }
     .cs-goals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 16px; }
     .cs-goals-col-title { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
     .cs-goals-list { display: flex; flex-direction: column; gap: 14px; }
@@ -127,16 +159,22 @@
     /* Decision cards */
     #cs-decisions { background-color: var(--light-bg); }
     .cs-decisions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; }
-    .cs-decision-card { background: rgba(0,0,0,0.04); border: 1px solid rgba(91,168,160,0.2); border-radius: 10px; padding: 28px; transition: border-color var(--transition), background var(--transition); }
-    .cs-decision-card:hover { border-color: var(--accent); background: rgba(91,168,160,0.05); }
+    .cs-decision-card { background: rgba(9, 15, 21, 0.05); border: 1px solid rgba(108, 109, 116, 0.2); border-radius: 10px; padding: 28px; transition: border-color var(--transition), background var(--transition); }
+    .cs-decision-card:hover { border-color: var(--accent); background: rgba(136, 134, 122, 0.05); }
     .cs-decision-number { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 12px; }
-    .cs-decision-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
-    .cs-decision-desc { font-size: 0.88rem; color: #555566; line-height: 1.7; }
-    #cs-decisions .cs-section-title { color: #1a1a1a; }
+    .cs-decision-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: #090F15; margin-bottom: 10px; }
+    .cs-decision-desc { font-size: 0.88rem; color: #262E36; line-height: 1.7; }
+    #cs-decisions .cs-section-title { color: #090F15; }
 
     /* Horizontal scroll */
     .cs-scroll-container { margin: 48px 0 0; }
-    .cs-scroll-inner { overflow-x: auto; overflow-y: hidden; border-radius: 12px; border: 1px solid var(--accent-border); box-shadow: 0 24px 60px rgba(0,0,0,0.3); cursor: grab; scrollbar-width: thin; scrollbar-color: var(--accent) transparent; }
+    .cs-scroll-inner {
+      overflow-x: auto; overflow-y: hidden;
+      border-radius: 12px; border: 1px solid var(--accent-border);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+      cursor: grab;
+      scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
+    }
     .cs-scroll-inner::-webkit-scrollbar { height: 4px; }
     .cs-scroll-inner::-webkit-scrollbar-track { background: transparent; }
     .cs-scroll-inner::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
@@ -145,7 +183,10 @@
     .cs-scroll-hint { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; color: var(--text-secondary); text-align: center; margin-top: 12px; }
 
     /* Visual */
-    #cs-visual { background-color: #0a0a0f; background-image: url(https://res.cloudinary.com/dnnfhyeuv/image/upload/echolocate4_ekvhdv); background-size: cover; background-position: center; }
+    #cs-visual {
+      background-color: #090F15; /* Midnight */
+      background-size: cover; background-position: center;
+    }
     .cs-swatches { display: flex; gap: 16px; margin-top: 28px; }
     .cs-swatch { display: flex; flex-direction: column; gap: 8px; align-items: center; }
     .cs-swatch-box { width: 56px; height: 56px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
@@ -153,11 +194,14 @@
 
     /* Motion */
     #cs-motion { background-color: var(--light-bg); }
-    #cs-motion .cs-section-title { color: #1a1a1a; }
-    #cs-motion .cs-body { color: #555566; }
+    #cs-motion .cs-section-title { color: #090F15; }
+    #cs-motion .cs-body { color: #262E36; }
 
     /* Result */
-    #cs-result { background-color: #0a0a0f; background-image: url(https://res.cloudinary.com/dnnfhyeuv/image/upload/echolocate4_ekvhdv); background-size: cover; background-position: center; }
+    #cs-result {
+      background-color: #090F15; /* Midnight */
+      background-size: cover; background-position: center;
+    }
     .cs-stat { display: inline-flex; flex-direction: column; margin-top: 32px; }
     .cs-stat-number { font-family: var(--font-serif); font-size: 4rem; font-weight: 700; color: var(--accent); line-height: 1; }
     .cs-stat-label { font-size: 0.82rem; color: var(--text-secondary); letter-spacing: 0.08em; margin-top: 8px; }
@@ -167,26 +211,41 @@
     .cs-learned-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
     .cs-learned-col-title { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
     .cs-learned-col-title.went-well { color: var(--accent); }
-    .cs-learned-col-title.refine { color: #555566; }
+    .cs-learned-col-title.refine { color: #262E36; }
     .cs-learned-list { display: flex; flex-direction: column; gap: 16px; }
-    .cs-learned-list li { font-size: 0.92rem; color: #555566; line-height: 1.65; padding-left: 20px; position: relative; }
+    .cs-learned-list li { font-size: 0.92rem; color: #262E36; line-height: 1.65; padding-left: 20px; position: relative; }
     .cs-learned-list li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-size: 1.2rem; line-height: 1.4; }
-    .cs-learned-list li strong { color: #1a1a1a; font-weight: 500; }
+    .cs-learned-list li strong { color: #090F15; font-weight: 500; }
 
     /* Next CTA */
-    #cs-next { padding: 80px 0; background: var(--dark-bg); text-align: center; }
+    #cs-next { padding: 80px 0; background-color: #090F15;
+      background-image: url(https://res.cloudinary.com/dnnfhyeuv/image/upload/v1779014929/Case_study_hy97qn.png); background-size: cover; background-position: center; text-align: center; }
     .cs-next-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
     .cs-next-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--text-light); margin-bottom: 32px; }
     .cs-next-title span { font-style: italic; color: var(--accent); }
 
     /* Footer */
-    #footer { padding: 40px 0; border-top: 1px solid rgba(91,168,160,0.08); background: var(--dark-bg); }
+    #footer { padding: 40px 0; border-top: 1px solid rgba(108,109,116,0.1); background: var(--dark-bg); }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; }
     .footer-copy { font-size: 0.82rem; color: var(--text-secondary); }
 
-    #cs-goals, #cs-visual, #cs-build, #cs-result, #cs-next, #cs-hero { position: relative; }
-    #cs-goals::before, #cs-visual::before, #cs-build::before, #cs-result::before, #cs-next::before { content: ''; position: absolute; inset: 0; background: rgba(8, 8, 16, 0.72); pointer-events: none; z-index: 0; }
-    #cs-goals .container, #cs-visual .container, #cs-build .container, #cs-result .container, #cs-next .container { position: relative; z-index: 1; }
+    #cs-goals, #cs-visual, #cs-build, #cs-result, #cs-next, #cs-hero {
+      position: relative;
+    }
+
+    #cs-goals::before, #cs-visual::before, #cs-build::before, #cs-result::before, #cs-next::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(9, 15, 21, 0.72); /* Midnight background overlay */
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #cs-goals .container, #cs-visual .container, #cs-build .container, #cs-result .container, #cs-next .container {
+      position: relative;
+      z-index: 1;
+    }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -196,7 +255,7 @@
       #cursor-dot, #cursor-ring { display: none; }
       body { cursor: auto; }
     }
-  </style>
+</style>
 </head>
 <body>
 
