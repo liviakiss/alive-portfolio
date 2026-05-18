@@ -19,6 +19,7 @@ Personal portfolio website for Lívia Kiss, UX/UI Product Designer and founder o
 - `moral-me.html` — Moral Me case study
 - `design-system.html` — Design System case study
 - `goldmaster.html` — Goldmaster case study
+- `pantry.html` — Pantry case study
 - `privacy-policy.html` — Privacy Policy
 - `services.html` — My services
 
