@@ -1253,3 +1253,65 @@ a, button, input, textarea, select, label {
 .lang-toggle .divider {
   color: rgba(108, 109, 116, 0.4);
 }
+
+/* ===== Mobile hero + contact drawing optimization ===== */
+@media (max-width: 768px) {
+
+  #hero {
+    background-image: url(https://res.cloudinary.com/dnnfhyeuv/image/upload/v1779092881/Phone_hero_owa4hb.png);
+    background-size: cover;
+    background-position: center top;
+    min-height: 100vh;
+  }
+
+  /* move ONLY the buttons down into the empty space */
+  #hero .hero-actions {
+    margin-top: 280px;   /* pushes buttons into the lower empty zone */
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(9, 15, 21, 0.55) 0%,
+      rgba(9, 15, 21, 0.25) 30%,
+      rgba(9, 15, 21, 0.18) 55%,
+      rgba(9, 15, 21, 0.65) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+  #hero .container { position: relative; z-index: 1; }
+
+
+  #contact {
+    position: relative;
+    overflow: hidden;
+    background-image: none;
+  }
+
+  #contact::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 340px;
+    background-image: url(https://res.cloudinary.com/dnnfhyeuv/image/upload/v1779095202/Phonecontact3_ksii6m.png);
+    background-size: cover;
+    background-position: center bottom;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #contact .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  #contact .contact-socials {
+    margin-bottom: 100px;
+  }
+}
